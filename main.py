@@ -52,7 +52,7 @@ if task == "그래프":
 
             if graph_type == "위치":
                 fig, ax = plt.subplots()
-                ax.plot(time, distance, label='거리', color='blue')
+                ax.plot(time, distance, label='length', color='blue')
                 ax.set_title('time - length')
                 ax.set_xlabel('time (second)')
                 ax.set_ylabel('length (m)')
@@ -62,7 +62,7 @@ if task == "그래프":
 
             elif graph_type == "속도":
                 fig, ax = plt.subplots()
-                ax.plot(time, velocity, label='속도', color='green')
+                ax.plot(time, velocity, label='speed', color='green')
                 ax.set_title('time - speed')
                 ax.set_xlabel('time (second)')
                 ax.set_ylabel('speed (m/s)')
@@ -72,7 +72,7 @@ if task == "그래프":
 
             elif graph_type == "가속도":
                 fig, ax = plt.subplots()
-                ax.plot(time, acceleration, label='가속도', color='red')
+                ax.plot(time, acceleration, label='acceleration', color='red')
                 ax.set_title('time - acceleration')
                 ax.set_xlabel('time (초)')
                 ax.set_ylabel('acceleration (m/s²)')
@@ -83,21 +83,21 @@ if task == "그래프":
             elif graph_type == "전체 그래프":
                 fig, axs = plt.subplots(3, 1, figsize=(10, 8))
 
-                axs[0].plot(time, distance, label='거리', color='blue')
+                axs[0].plot(time, distance, label='length', color='blue')
                 axs[0].set_title('time - length')
                 axs[0].set_xlabel('time (second)')
                 axs[0].set_ylabel('length (m)')
                 axs[0].grid(True)
                 axs[0].legend()
 
-                axs[1].plot(time, velocity, label='속도', color='green')
+                axs[1].plot(time, velocity, label='speed', color='green')
                 axs[1].set_title('time - speed')
                 axs[1].set_xlabel('time (second)')
                 axs[1].set_ylabel('speed (m/s)')
                 axs[1].grid(True)
                 axs[1].legend()
 
-                axs[2].plot(time, acceleration, label='가속도', color='red')
+                axs[2].plot(time, acceleration, label='acceleration', color='red')
                 axs[2].set_title('acceleration')
                 axs[2].set_xlabel('time (second)')
                 axs[2].set_ylabel('acceleration (m/s²)')
