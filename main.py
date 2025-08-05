@@ -24,17 +24,6 @@ class Motion:
     def get_variables(self):
         return self.s, self.t, self.v0, self.v, self.a
 
-# 한글 폰트 설정
-if platform.system() == 'Windows':
-    matplotlib.rc('font', family='Malgun Gothic')
-elif platform.system() == 'Darwin':  # macOS
-    matplotlib.rc('font', family='AppleGothic')
-else:
-    matplotlib.rc('font', family='NanumGothic')  # Ubuntu
-
-# 마이너스 부호 깨짐 방지
-matplotlib.rcParams['axes.unicode_minus'] = False
-
 # Streamlit 앱 시작
 st.title("등가속도 운동 시뮬레이터")
 
@@ -64,9 +53,9 @@ if task == "그래프":
             if graph_type == "위치":
                 fig, ax = plt.subplots()
                 ax.plot(time, distance, label='거리', color='blue')
-                ax.set_title('시간에 따른 위치 변화')
-                ax.set_xlabel('시간 (초)')
-                ax.set_ylabel('거리 (m)')
+                ax.set_title('time - length')
+                ax.set_xlabel('time (second)')
+                ax.set_ylabel('length (m)')
                 ax.grid(True)
                 ax.legend()
                 st.pyplot(fig)
@@ -74,9 +63,9 @@ if task == "그래프":
             elif graph_type == "속도":
                 fig, ax = plt.subplots()
                 ax.plot(time, velocity, label='속도', color='green')
-                ax.set_title('시간에 따른 속도 변화')
-                ax.set_xlabel('시간 (초)')
-                ax.set_ylabel('속도 (m/s)')
+                ax.set_title('time - speed')
+                ax.set_xlabel('time (second)')
+                ax.set_ylabel('speed (m/s)')
                 ax.grid(True)
                 ax.legend()
                 st.pyplot(fig)
@@ -84,9 +73,9 @@ if task == "그래프":
             elif graph_type == "가속도":
                 fig, ax = plt.subplots()
                 ax.plot(time, acceleration, label='가속도', color='red')
-                ax.set_title('시간에 따른 가속도 변화')
-                ax.set_xlabel('시간 (초)')
-                ax.set_ylabel('가속도 (m/s²)')
+                ax.set_title('time - acceleration')
+                ax.set_xlabel('time (초)')
+                ax.set_ylabel('acceleration (m/s²)')
                 ax.grid(True)
                 ax.legend()
                 st.pyplot(fig)
@@ -95,23 +84,23 @@ if task == "그래프":
                 fig, axs = plt.subplots(3, 1, figsize=(10, 8))
 
                 axs[0].plot(time, distance, label='거리', color='blue')
-                axs[0].set_title('위치')
-                axs[0].set_xlabel('시간 (초)')
-                axs[0].set_ylabel('거리 (m)')
+                axs[0].set_title('time - length')
+                axs[0].set_xlabel('time (second)')
+                axs[0].set_ylabel('length (m)')
                 axs[0].grid(True)
                 axs[0].legend()
 
                 axs[1].plot(time, velocity, label='속도', color='green')
-                axs[1].set_title('속도')
-                axs[1].set_xlabel('시간 (초)')
-                axs[1].set_ylabel('속도 (m/s)')
+                axs[1].set_title('time - speed')
+                axs[1].set_xlabel('time (second)')
+                axs[1].set_ylabel('speed (m/s)')
                 axs[1].grid(True)
                 axs[1].legend()
 
                 axs[2].plot(time, acceleration, label='가속도', color='red')
-                axs[2].set_title('가속도')
-                axs[2].set_xlabel('시간 (초)')
-                axs[2].set_ylabel('가속도 (m/s²)')
+                axs[2].set_title('acceleration')
+                axs[2].set_xlabel('time (second)')
+                axs[2].set_ylabel('acceleration (m/s²)')
                 axs[2].grid(True)
                 axs[2].legend()
 
