@@ -22,6 +22,17 @@ class Motion:
     def get_variables(self):
         return self.s, self.t, self.v0, self.v, self.a
 
+# 한글 폰트 설정
+if platform.system() == 'Windows':
+    matplotlib.rc('font', family='Malgun Gothic')
+elif platform.system() == 'Darwin':  # macOS
+    matplotlib.rc('font', family='AppleGothic')
+else:
+    matplotlib.rc('font', family='NanumGothic')  # Ubuntu
+
+# 마이너스 부호 깨짐 방지
+matplotlib.rcParams['axes.unicode_minus'] = False
+
 # Streamlit 앱 시작
 st.title("등가속도 운동 시뮬레이터")
 
