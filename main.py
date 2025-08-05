@@ -123,4 +123,35 @@ elif task == "미지의 값 찾기":
                 st.success(f'💡 거리 s = {s:.2f} m')
 
             elif t == '?':
-                s = float(
+                s = float(s)
+                a = float(a)
+                t = ((2 * s) / a) ** 0.5
+                st.success(f'💡 시간 t = {t:.2f} s')
+
+            elif v0 == '?':
+                v = float(v)
+                a = float(a)
+                t = float(t)
+                v0 = v - a * t
+                st.success(f'💡 처음속도 v0 = {v0:.2f} m/s')
+
+            elif v == '?':
+                v0 = float(v0)
+                a = float(a)
+                t = float(t)
+                v = v0 + a * t
+                st.success(f'💡 나중속도 v = {v:.2f} m/s')
+
+            elif a == '?':
+                v = float(v)
+                v0 = float(v0)
+                s = float(s)
+                a = (v ** 2 - v0 ** 2) / (2 * s)
+                st.success(f'💡 가속도 a = {a:.2f} m/s²')
+
+        except ValueError:
+            st.error("입력 값 중 숫자로 변환할 수 없는 항목이 있습니다.")
+
+# ===================== 3. 변수 재입력 (리셋 역할) =========================
+elif task == "변수 재입력":
+    st.experimental_rerun()
